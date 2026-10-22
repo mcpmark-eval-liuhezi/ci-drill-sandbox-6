@@ -1,0 +1,15 @@
+name: drill
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  stuck-build-standin:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Simulate a wedged CI build (sleep 10 minutes)
+        run: |
+          echo "Stand-in for a stuck CI build. Sleeping for 10 minutes..."
+          sleep 600
+          echo "Sleep finished (run should normally be cancelled before this point)."
